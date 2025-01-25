@@ -1,8 +1,12 @@
+from algoritmos_de_busca.bp_ancestrais import bp
+
+
 class Estado:
     def __init__(self, v1, v2, pai):
         self.v1 = v1
         self.v2 = v2
         self.pai = pai
+        self.nivel = 0 if pai is None else pai.nivel + 1
 
 
 def exibe(estado):
@@ -56,3 +60,10 @@ def expande(estado):
     filhos.append(transfere_1_2(estado))
     filhos.append(transfere_2_1(estado))
     return filhos
+
+
+def iguais(estado1, estado2):
+    return estado1.v1 == estado2.v1 and estado1.v2 == estado2.v2
+
+
+bp(exibe, estado_inicial, objetivo, expande, iguais)
