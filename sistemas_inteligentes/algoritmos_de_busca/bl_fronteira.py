@@ -1,4 +1,4 @@
-def bl(exibe, estado_inicial, objetivo, expande):
+def bl(exibe, estado_inicial, objetivo, expande, iguais):
     fronteira = []
 
     def adc_na_fronteira(estado):
@@ -17,6 +17,23 @@ def bl(exibe, estado_inicial, objetivo, expande):
         mostrar_caminho(estado.pai)
         exibe(estado)
 
+    def em_ancestrais(filho):
+        ancestral = filho.pai
+        while ancestral is not None:
+            if iguais(filho, ancestral):
+                return True
+
+            ancestral = ancestral.pai
+
+        return False
+
+    def esta_na_fronteira(filho):
+        for estado in fronteira:
+            if iguais(estado, filho):
+                return True
+
+        return False
+
     adc_na_fronteira(estado_inicial())
     while not vazia():
         atual = rmv_da_fronteira()
@@ -28,4 +45,5 @@ def bl(exibe, estado_inicial, objetivo, expande):
 
         filhos = expande(atual)
         for filho in filhos:
-            adc_na_fronteira(filho)
+            if not esta_na_fronteira(filho) and not em_ancestrais(filho):
+                adc_na_fronteira(filho)

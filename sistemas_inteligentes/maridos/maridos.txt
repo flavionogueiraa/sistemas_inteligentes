@@ -1,0 +1,147 @@
+Três maridos, com suas respectivas esposas, querem atravessar um rio. Acontece que, no barco só cabem duas pessoas e os 3 maridos são muito 
+ciumentos e não permitem que sua esposa fique numa das margens com outro homem, sem que ele também esteja presente. Como pode ser feita a 
+travessia sem utilizar veículo aéreo nem nadar? (Barbosa, 1999).
+
+Escreva em pseudo-código uma classe para representar um estado desse problema. Use apenas tipos numéricos ou booleano.
+Para cada membro da classe, diga que valor ou quantidade do estado do problema, esse membro representa (em forma de comentário).
+Caso algum membro possa representar uma característica que pode assumar uma pequena quantidade de valores diferentes (enumerados),
+diga o significado de cada um dos possíveis valores.
+
+* Serão utilizados dois vetores, e um membro extra. Um dos vetores, representa os homens, sendo que cada elemento desse vetor,
+guarda em qual margem está aquele homem: 0 caso esteja na margem esquerda e 1 caso contário.
+O outro vetor representa as mulheres da mesma forma. O outro membro informa em qual margem está o barco usando a mesma codificação.
+
+* Em pseudo-código:
+class Estado:
+    def __init__(self, homens, mulheres, barco):
+        # Vetor representando os homens
+        # se homens[i] = 0, então o i-ésimo homem
+        # está na margem esquerda, caso contrário,
+        # está na margem direita
+        self.homens = homens
+        # Idem
+        self.mulheres = mulheres
+        # Idem
+        self.barco = barco
+
+Escreva em pseudo-código uma função que retorna o estado inicial desse problema.
+def estado_inicial():
+    return Estado([0, 0, 0], [0, 0, 0], 0)
+
+Escreva em pseudo-código uma função que retorne verdadeiro caso um estado seja um estado objetivo desse problema.
+def objetivo(estado):
+    return estado.homens == [1, 1, 1] and estado.mulheres == [1, 1, 1] and estado.barco == 1
+
+Escreva em pseudo-código uma função que retorne verdadeiro caso um estado seja um estado inválido desse problema.
+* Para cada mulher, será verificado se está na mesma margem que o marido. Caso contrário, será verificado se há outro
+* homem nessa mesma margem.
+
+def valido(estado):
+    for i in range(len(estado.mulheres)):
+        if estado.mulheres[i] == estado.homens[i]:
+            continue
+
+        for j in range(len(estado.homens)):
+            if estado.mulheres[i] == estado.homens[j]:
+                return False
+    
+    return True
+
+Escreva uma função que implementa a ação de levar uma das mulheres para a outra margem.
+def levar_primeira_mulher(estado):
+    homens = estado.homens.copy()
+    mulheres = estado.mulheres.copy()
+
+    if mulheres[0] != estado.barco:
+        return None
+    
+    mulheres[0] = 1 - mulheres[0]
+    return Estado(homens, mulheres, 1 - estado.barco)
+
+
+# Resposta nossa dada em sala:
+Class Estado:
+    def __init__(self, esquerda, direita, barco)
+        self.esquerda = esquerda 
+        # array de arrays que representa os casais que estão na esquerda, cada posição do array representa um casal.
+
+        self.direita = direita 
+        # array de arrays que representa os casais que estão na direita, cada posição do array representa um casal.
+
+        # O marido sempre vai estar na primeira posição do array interno, e a esposa na segunda posição: [[0,0], [0,0], [0,0]]
+
+        self.barco = barco
+        # A posição do barco será representada por "d" quando ele estiver na direita e "e", quando estiver na esquerda
+
+def estado_inicial():
+    # Supondo que os casais estão na margem esquerda do rio
+    return Estado([[1,1], [1,1], [1,1]], [[0,0], [0,0], [0,0]], "e")
+
+def estado_objetivo(estado):
+    # Supondo que o objetivo seja levar todos os casais para a margem direita do rio
+    return estado.esquerda == [[0,0], [0,0], [0,0]] and estado.direita == [[1,1], [1,1], [1,1]] and estado.barco == "d"
+
+def valido(estado):
+    if estado.esquerda[0][1] == 1:
+        if estado.esquerda[0][0] != 1:
+            if estado.esquerda[1][0] == 1 or estado.esquerda[2][0] == 1:
+                return False
+    
+    if estado.esquerda[1][1] == 1:
+        if estado.esquerda[1][0] != 1:
+            if estado.esquerda[0][0] == 1 or estado.esquerda[2][0] == 1:
+                return False
+    
+    if estado.esquerda[2][1] == 1:
+        if estado.esquerda[2][0] != 1:
+            if estado.esquerda[0][0] == 1 or estado.esquerda[1][0] == 1:
+                return False
+
+    if estado.direita[0][1] == 1:
+        if estado.direita[0][0] != 1:
+            if estado.direita[1][0] == 1 or estado.direita[2][0] == 1:
+                return False
+    
+    if estado.direita[1][1] == 1:
+        if estado.direita[1][0] != 1:
+            if estado.direita[0][0] == 1 or estado.direita[2][0] == 1:
+                return False
+    
+    if estado.direita[2][1] == 1:
+        if estado.direita[2][0] != 1:
+            if estado.direita[0][0] == 1 or estado.direita[1][0] == 1:
+                return False
+
+    return True
+
+def acao_levar_mulher(estado, casal):
+    esquerda = estado.esquerda
+    direita = estado.direita
+    barco = estado.barco
+ 
+    if estado.barco == "d":
+        esquerda[casal][1] = 1
+        direita[casal][1] = 0
+        barco = "e"
+    else:
+        esquerda[casal][1] = 0
+        direita[casal][1] = 1
+        barco = "d"
+
+    return Estado(esquerda, direita, barco)
+
+def acao_levar_marido(estado, casal):
+    esquerda = estado.esquerda
+    direita = estado.direita
+    barco = estado.barco
+ 
+    if estado.barco == "d":
+        esquerda[casal][0] = 1
+        direita[casal][0] = 0
+        barco = "e"
+    else:
+        esquerda[casal][0] = 0
+        direita[casal][0] = 1
+        barco = "d"
+
+    return Estado(esquerda, direita, barco)
