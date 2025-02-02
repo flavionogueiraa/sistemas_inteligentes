@@ -1,5 +1,4 @@
 import math
-import os
 import random
 
 
@@ -38,21 +37,13 @@ def prob(deltaE, T):
 
 
 T = 1000
-temp_crit = 0.0001
-taxa_resfriamento = 0.999
 atual = estado_inicial()
+while T > 0.0001:
+    T = 0.999 * T
+    vizinho = melhor_sucessor(atual)
+    deltaE = vizinho.f - atual.f
+    if deltaE > 0 or random.uniform(0, 1) < prob(deltaE, T):
+        atual = vizinho
+        exibe(atual)
 
-with open("./saida.txt", "w", encoding="utf-8") as arquivo:
-    while T > temp_crit:
-        T = taxa_resfriamento * T
-        vizinho = melhor_sucessor(atual)
-        deltaE = vizinho.f - atual.f
-        if deltaE > 0 or random.uniform(0, 1) < prob(deltaE, T):
-            arquivo.write(f"{atual.x} {atual.f}\n")
-            atual = vizinho
-            exibe(atual)
-
-print("Solução final:")
 exibe(atual)
-
-os.system("gnuplot gnuplot_script")

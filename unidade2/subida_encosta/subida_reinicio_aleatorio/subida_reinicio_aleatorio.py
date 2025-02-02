@@ -1,4 +1,5 @@
 import math
+import os
 import random
 
 
@@ -33,10 +34,20 @@ def melhor_sucessor(estado):
     return melhor
 
 
-atual = estado_inicial()
-while True:
-    vizinho = melhor_sucessor(atual)
-    if vizinho.f <= atual.f:
-        exibe(atual)
-        break
-    atual = vizinho
+melhor = estado_inicial()
+
+with open("./saida.txt", "w", encoding="utf-8") as arquivo:
+    for _ in range(200):
+        atual = estado_inicial()
+        while True:
+            arquivo.write(f"{atual.x} {atual.f}\n")
+            vizinho = melhor_sucessor(atual)
+            if vizinho.f <= atual.f:
+                break
+            atual = vizinho
+
+        if atual.f > melhor.f:
+            melhor = atual
+            exibe(melhor)
+
+os.system("gnuplot gnuplot_script")
