@@ -1,0 +1,18 @@
+Considere o seguinte problema de otimização:
+
+
+* Em uma comunidade, cada casa está associada a algumas lâmpadas (postes de iluminação pública) que podem iluminá-la quando alguma dessas lâmpadas é ligada. Pretende-se determinar o menor conjunto de lâmpadas que precisam ser ligadas para iluminar todas as casas da comunidade.
+
+Para a implementação de algum algoritmo de otimização para o problema descrito, assuma que é disponibilizada uma matriz em que cada elemento pode assumir um dos possíveis valores: 0 ou 1. Se a lâmpada i pode iluminar a casa j então o elemento i j da matriz dada é 1; caso contrário o valor será 0.
+
+A indexação nesse problema, tanto em linhas, colunas, listas ou vetores começa em 0. Para códigos e pseudocódigos, assuma uma variável global chamada lampada_casa que guarda a matriz como descrita anteriormente.
+
+- Escreva em pseudocódigo uma classe para representar uma solução (ou estado) desse problema. Use apenas tipos numéricos, booleanos ou listas desses tipos. Para cada membro da classe, diga seu tipo, que valor ou quantidade do estado do problema esse membro representa(em forma de comentário). Caso algum membro possa representar uma característica que pode assumir uma pequena quantidade de valores diferentes pré-definidos (enumeração), diga o significado de cada um dos possíveis valores. No caso de listas, diga o que o i-ésimo item da lista representa de acordo com as regras dadas.
+
+- Escreva em pseudocódigo uma função que retorne um estado inicial desse problema.
+
+- Escreva em pseudocódigo uma função objetivo para esse problema. Essa função objetivo deve retornar um valor inconveniente para o caso de estados inválidos.
+
+- Escreva em pseudocódigo uma função que aplica uma modificação aleatória a um estado desse problema. Isto é, a função deve receber um estado como parâmetro e retornar um novo estado (potencialmente diferente) obtido a partir de uma modificação aleatória do estado que lhe foi passado.
+
+- Escreva em pseudocódigo uma função que combina dois estados. Isto é, a função deve receber dois estados como parâmetros e retornar um novo estado obtido a partir da combinação dos estados que foram passados.
