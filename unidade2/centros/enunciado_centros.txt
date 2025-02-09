@@ -1,0 +1,19 @@
+* Problema
+ - Posicionamento de serviço de atendimento de urgência.
+
+ - Descrição intuitiva:
+   - Pretende-se escolher os distritos de uma cidade que irão receber centros de serviço de atendimento de urgência de modo a minimizar o tempo máximo necessário para atender uma situação de urgência.
+
+ - Dados de entrada:
+   - Número de centros de atendimento de urgência
+   - Matriz indicando, para cada distrito, o tempo necessário para ser atendido por um centro que esteja em cada um dos outros distritos.
+
+ - Dados de saída:
+   - Lista de distritos escolhidos.
+
+ - Restrições:
+   - Número de distritos.
+   - Menor tempo máximo para atendimento.
+
+ - Característica a ser otimizada:
+   - Minimizar o tempo máximo para atender um ocorrência de urgência.

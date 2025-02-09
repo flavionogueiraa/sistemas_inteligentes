@@ -7,12 +7,12 @@ Para a implementação de algum algoritmo de otimização para o problema descri
 
 A indexação nesse problema, tanto em linhas, colunas, listas ou vetores começa em 0. Para códigos e pseudocódigos, assuma uma variável global chamada lampada_casa que guarda a matriz como descrita anteriormente.
 
-- Escreva em pseudocódigo uma classe para representar uma solução (ou estado) desse problema. Use apenas tipos numéricos, booleanos ou listas desses tipos. Para cada membro da classe, diga seu tipo, que valor ou quantidade do estado do problema esse membro representa(em forma de comentário). Caso algum membro possa representar uma característica que pode assumir uma pequena quantidade de valores diferentes pré-definidos (enumeração), diga o significado de cada um dos possíveis valores. No caso de listas, diga o que o i-ésimo item da lista representa de acordo com as regras dadas.
+1 - Escreva em pseudocódigo uma classe para representar uma solução (ou estado) desse problema. Use apenas tipos numéricos, booleanos ou listas desses tipos. Para cada membro da classe, diga seu tipo, que valor ou quantidade do estado do problema esse membro representa(em forma de comentário). Caso algum membro possa representar uma característica que pode assumir uma pequena quantidade de valores diferentes pré-definidos (enumeração), diga o significado de cada um dos possíveis valores. No caso de listas, diga o que o i-ésimo item da lista representa de acordo com as regras dadas.
 
-- Escreva em pseudocódigo uma função que retorne um estado inicial desse problema.
+2 - Escreva em pseudocódigo uma função que retorne um estado inicial desse problema.
 
-- Escreva em pseudocódigo uma função objetivo para esse problema. Essa função objetivo deve retornar um valor inconveniente para o caso de estados inválidos.
+3 - Escreva em pseudocódigo uma função objetivo para esse problema. Essa função objetivo deve retornar um valor inconveniente para o caso de estados inválidos.
 
-- Escreva em pseudocódigo uma função que aplica uma modificação aleatória a um estado desse problema. Isto é, a função deve receber um estado como parâmetro e retornar um novo estado (potencialmente diferente) obtido a partir de uma modificação aleatória do estado que lhe foi passado.
+4 - Escreva em pseudocódigo uma função que aplica uma modificação aleatória a um estado desse problema. Isto é, a função deve receber um estado como parâmetro e retornar um novo estado (potencialmente diferente) obtido a partir de uma modificação aleatória do estado que lhe foi passado.
 
-- Escreva em pseudocódigo uma função que combina dois estados. Isto é, a função deve receber dois estados como parâmetros e retornar um novo estado obtido a partir da combinação dos estados que foram passados.
+5 - Escreva em pseudocódigo uma função que combina dois estados. Isto é, a função deve receber dois estados como parâmetros e retornar um novo estado obtido a partir da combinação dos estados que foram passados.
