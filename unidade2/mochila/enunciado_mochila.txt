@@ -1,0 +1,24 @@
+* Problema
+ - Problema da mochila com duas restrições.
+
+ - Descrição intuitiva:
+   - Pretende-se colocar um conjunto de itens que tem preço, peso e volume em uma mochila que tem um determinado limite de volume e peso de forma a maximizar o preço total dos itens carregados na mochila.
+
+ - Dados de entrada:
+   - Limites da mochila:
+     - Peso
+     - Volume
+   - Lista de itens, cada item com
+     - preço,
+     - peso e
+     - volume.
+
+ - Dados de saída:
+   - Lista de itens escolhidos.
+
+ - Restrições:
+   - Peso total dos itens escolhidos não pode superar o limite de peso da mochila.
+   - Volume total dos itens escolhidos não pode superar o limite de volume da mochila.
+
+ - Característica a ser otimizada:
+   - Maximizar o preço total dos itens escolhidos.
